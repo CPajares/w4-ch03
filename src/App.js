@@ -4,6 +4,16 @@ import Display from "./Components/Display/Display";
 import Action from "./Components/Action/Action";
 
 function App() {
+  /* const deleteGentleman = (event) => {
+    event.preventDefault();
+    onDeleteGentleman();
+  }; */
+  const calling = () => {
+    console.log("CALL");
+  };
+  const hang = () => {
+    console.log("HANG");
+  };
   return (
     <div className="container">
       {/*  <span className="message">Calling...</span> */}
@@ -49,15 +59,7 @@ function App() {
         <div className="actions">
           {/* <span className="number">667359961</span> */}
           <Display numbers={666666} />
-          <Action
-            clase={"active"}
-            call={() => {
-              console.log("CALL");
-            }}
-            hang={() => {
-              console.log("HANG");
-            }}
-          />
+          <Action clase={"active"} call={calling} hang={hang} />
           {/*  <a href="#" className="call">
             Call
           </a>
