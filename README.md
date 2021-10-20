@@ -3,9 +3,9 @@ INFO-
 DISPLAY-
 *Renderiza números recibidos
 ACTION-
+*Renderiza botones
 *Recibe una clase
-*Recibe funcion
-\*Recibe clase
+\*Recibe dos funciones
 
 ACTIONS-
 *Muestra un botón recibido (estado)
