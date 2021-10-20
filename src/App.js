@@ -2,6 +2,7 @@ import "./App.css";
 import Info from "./Components/Info/Info";
 import Display from "./Components/Display/Display";
 import Action from "./Components/Action/Action";
+import Button from "./Components/Button/Button";
 
 function App() {
   /* const deleteGentleman = (event) => {
@@ -14,6 +15,9 @@ function App() {
   const hang = () => {
     console.log("HANG");
   };
+  const marcar = () => {
+    console.log("marcando");
+  };
   return (
     <div className="container">
       {/*  <span className="message">Calling...</span> */}
@@ -21,39 +25,7 @@ function App() {
       <main className="phone">
         <div className="keyboard-container">
           <ol className="keyboard">
-            <li>
-              <button className="key">1</button>
-            </li>
-            <li>
-              <button className="key">2</button>
-            </li>
-            <li>
-              <button className="key">3</button>
-            </li>
-            <li>
-              <button className="key">4</button>
-            </li>
-            <li>
-              <button className="key">5</button>
-            </li>
-            <li>
-              <button className="key">6</button>
-            </li>
-            <li>
-              <button className="key">7</button>
-            </li>
-            <li>
-              <button className="key">8</button>
-            </li>
-            <li>
-              <button className="key">9</button>
-            </li>
-            <li>
-              <button className="key">0</button>
-            </li>
-            <li>
-              <button className="key big">delete</button>
-            </li>
+            <Button text={1} marcar={marcar} />
           </ol>
         </div>
         <div className="actions">
