@@ -1,7 +1,5 @@
+const Display = ({ numbers }) => {
+  return <span className="number">{numbers}</span>;
+};
 
-const Display = ()=>{
-
-    return(
-        
-    )
-}
+export default Display;

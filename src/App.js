@@ -1,5 +1,6 @@
 import "./App.css";
 import Info from "./Components/Info/Info";
+import Display from "./Components/Display/Display";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
         </div>
         <div className="actions">
           {/* <span className="number">667359961</span> */}
+          <Display numbers={666666} />
 
           <a href="#" className="call">
             Call
