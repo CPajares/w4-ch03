@@ -2,9 +2,10 @@ import "./App.css";
 import Info from "./Components/Info/Info";
 import Display from "./Components/Display/Display";
 import Action from "./Components/Action/Action";
-import Button from "./Components/Button/Button";
+
 import phoneContext from "./Components/Context/Context";
 import Keyboard from "./Components/Keyboard/Keyboard";
+import { useState } from "react";
 
 function App() {
   const calling = () => {
@@ -13,8 +14,14 @@ function App() {
   const hang = () => {
     console.log("HANG");
   };
-  const marcar = () => {
-    console.log("marcando");
+  const marcar = (event) => {
+    if (numbersDisplay.length <= 9) {
+      setNumbersDisplay(numbersDisplay + event.target.textContent);
+    }
+  };
+
+  const deleted = (event) => {
+    setNumbersDisplay([]);
   };
   const numbers = [
     { number: "1", state: true },
@@ -30,8 +37,10 @@ function App() {
     { number: "DELETE", state: false },
   ];
 
+  const [numbersDisplay, setNumbersDisplay] = useState([]);
+
   return (
-    <phoneContext.Provider value={{ marcar, hang, calling, numbers }}>
+    <phoneContext.Provider value={{ marcar, hang, calling, deleted, numbers }}>
       <div className="container">
         {/*  <span className="message">Calling...</span> */}
         <Info message={"calling"} />
@@ -39,13 +48,18 @@ function App() {
           <div className="keyboard-container">
             <ol className="keyboard">
               {numbers.map((number, i) => (
-                <Keyboard key={i} text={number.number} estate={number.state} />
+                <Keyboard
+                  key={i}
+                  text={number.number}
+                  fun={number.state ? marcar : deleted}
+                  estate={number.state}
+                />
               ))}
             </ol>
           </div>
           <div className="actions">
             {/* <span className="number">667359961</span> */}
-            <Display numbers={666666} />
+            <Display numbers={numbersDisplay} />
             <Action clase={"active"} />
             {/*  <a href="#" className="call">
             Call
