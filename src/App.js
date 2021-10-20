@@ -1,6 +1,7 @@
 import "./App.css";
 import Info from "./Components/Info/Info";
 import Display from "./Components/Display/Display";
+import Action from "./Components/Action/Action";
 
 function App() {
   return (
@@ -48,14 +49,22 @@ function App() {
         <div className="actions">
           {/* <span className="number">667359961</span> */}
           <Display numbers={666666} />
-
-          <a href="#" className="call">
+          <Action
+            clase={"active"}
+            call={() => {
+              console.log("CALL");
+            }}
+            hang={() => {
+              console.log("HANG");
+            }}
+          />
+          {/*  <a href="#" className="call">
             Call
           </a>
 
           <a href="#" className="hang active">
             Hang
-          </a>
+          </a> */}
         </div>
       </main>
     </div>
