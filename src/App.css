@@ -84,18 +84,21 @@ li {
   opacity: 0.5;
   transform: scale(0.9);
   transition: all 0.2s ease-out;
+
+  pointer-events: none;
 }
 .actions .active {
   cursor: pointer;
   opacity: 1;
+  pointer-events: all;
 }
 .actions a.active:hover {
   transform: scale(1);
 }
-.actions .call {
+.actions a .call {
   background-color: #00886a;
 }
-.actions .hang {
+.hang {
   background-color: #b6002e;
 }
 .number {
