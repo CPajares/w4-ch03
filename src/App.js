@@ -6,19 +6,28 @@ import Action from "./Components/Action/Action";
 import phoneContext from "./Components/Context/Context";
 import Keyboard from "./Components/Keyboard/Keyboard";
 import { useState } from "react";
+console.log("NO A LA PIZZA CON PIÑA, ME DA MiEDO DE QUE ME GUSTE");
 
 function App() {
   const calling = () => {
-    console.log("CALL");
+    setMensajeInfo("calling...");
+    setClaseActive(false);
+    setTimeout(() => hang(), 5000);
   };
   const hang = () => {
-    console.log("HANG");
+    setClaseActive(true);
+    setNumbersDisplay([]);
+    setMensajeInfo("");
   };
   const marcar = (event) => {
-    if (numbersDisplay.length <= 9) {
+    if (numbersDisplay.length <= 8) {
       setNumbersDisplay(numbersDisplay + event.target.textContent);
+    } else {
+      setClaseActive(true);
     }
   };
+
+  const [claseActive, setClaseActive] = useState(true);
 
   const deleted = (event) => {
     setNumbersDisplay([]);
@@ -38,12 +47,15 @@ function App() {
   ];
 
   const [numbersDisplay, setNumbersDisplay] = useState([]);
+  const [mensajeInfo, setMensajeInfo] = useState("");
 
   return (
-    <phoneContext.Provider value={{ marcar, hang, calling, deleted, numbers }}>
+    <phoneContext.Provider
+      value={{ marcar, hang, calling, deleted, numbers, numbersDisplay }}
+    >
       <div className="container">
         {/*  <span className="message">Calling...</span> */}
-        <Info message={"calling"} />
+        <Info message={mensajeInfo} />
         <main className="phone">
           <div className="keyboard-container">
             <ol className="keyboard">
@@ -60,7 +72,7 @@ function App() {
           <div className="actions">
             {/* <span className="number">667359961</span> */}
             <Display numbers={numbersDisplay} />
-            <Action clase={"active"} />
+            <Action clase={claseActive} />
             {/*  <a href="#" className="call">
             Call
           </a>
