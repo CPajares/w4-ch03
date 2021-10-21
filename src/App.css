@@ -95,7 +95,7 @@ li {
 .actions a.active:hover {
   transform: scale(1);
 }
-.actions a .call {
+.call {
   background-color: #00886a;
 }
 .hang {
